@@ -9,10 +9,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px #e3e3e3 solid;
-  background: #f3f3f3;
+  background: #fcfcfc;
+  border: 1px solid #f2f2f2;
   width: 800px;
   min-height: 100vh;
+  padding: 20px;
   ${media.handheld`
     width: 100%;
   `}
@@ -33,9 +34,10 @@ export const GameList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
   padding: 5px;
-  border: 1px lightgrey solid;
+  background: #f7f7f7;
+  border: 1px solid #f5f5f5;
   justify-content: center;
 `
 export const GameRecord = styled.div`

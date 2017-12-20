@@ -31,7 +31,7 @@ const Question = styled.span`
 `
 
 const Answers = styled.div`
-  display; flex;
+  display: flex;
   flex-direction: row;
 
   justify-content: space-around;

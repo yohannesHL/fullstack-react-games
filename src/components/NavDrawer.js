@@ -6,10 +6,7 @@ import MenuItem from 'material-ui/MenuItem'
 import Divider from 'material-ui/Divider'
 import {NavToggleButton} from '../styled/NavDrawer'
 import AuthButton from './AuthButton'
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-// import NavDrawer from '../components/NavDrawer'
 
-// injectTapEventPlugin()
 const ReactLogo = styled.img`
 
     height: 25px;
