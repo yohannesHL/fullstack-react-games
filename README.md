@@ -2,7 +2,11 @@ Full stack react application demo.
 
 Collection of html5 canvas games.
 
-[Check it out](http://winging-plains-20610.heroku.com):
+[Check it out](http://winding-plains-20610.heroku.com):
+
+
+## To run locally:
+   `npm install; npm start`
 
 Frontend Stack:
 * ReactJs
@@ -10,6 +14,7 @@ Frontend Stack:
 * Material UI
 * Styled Components
 * Konva
+
 Backend Stack:
 * GraphQL
 * Auth0

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Stage} from 'react-konva'
+// import {Stage} from 'react-konva'
 import Relay from 'react-relay/classic'
 
 class Connect4 extends Component {
