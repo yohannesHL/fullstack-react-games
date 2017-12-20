@@ -4,7 +4,6 @@ import CreateUser from '../mutations/CreateUser'
 import SignInUser from '../mutations/SignInUser'
 
 const authDomain = 'yohan5.auth0.com'
-
 const clientId = '7G726od6liAZ6YGHhgo1lP6jbfSs7rJF'
 
 
@@ -14,17 +13,14 @@ class AuthService {
 
     this.lock = new Auth0Lock(clientId, authDomain,{
       // oidcConformant: true,
-      prefill:{
-        email: 'yohannes5@outlook.com',
-        password: 'test123456s'
-      },
+      prefill:{},
       auth:{
         redirectUrl: '',
 
         params:{
           scope: 'openid email'
         },
-        redirectUri: 'http://localhost:3000/callback',
+        redirectUri: '/',
         // audience: 'https://yohan5.auth0.com/userinfo',
         responseType: 'id_token',
       }
