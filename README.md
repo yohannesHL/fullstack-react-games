@@ -4,7 +4,7 @@ Features:
 * guess if the oponent is human or bot
 * login to record play history
 
-[Check it out](http://winding-plains-20610.heroku.com)
+[Check it out](https://winding-plains-20610.herokuapp.com)
 
 
 ## To run locally:
