@@ -1,9 +1,10 @@
-Full stack react application to play some classic games.
+Fullstack react application to play some classic games.
 Features:
 * play games with opponent
 * guess if the oponent is human or bot
 * login to record play history
 
+# Live Demo
 [Check it out](https://winding-plains-20610.herokuapp.com)
 
 
