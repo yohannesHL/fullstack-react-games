@@ -21,13 +21,14 @@ const ReactLogo = styled.img`
 export default class NavDrawer extends Component {
 
   state = {
-    open: false,
+    open: true,
     width: 200
   }
   componentWillMount() {
 
-    const open = !this.props.authenticated;
-    this.setState({ open })
+    // const open = !this.props.authenticated;
+    console.info('rerendered auth', this.props)
+    this.setState({ open:this.state.open })
   }
   toggle = () => {
     this.setState( (prevState, props) =>{
@@ -55,12 +56,12 @@ export default class NavDrawer extends Component {
             <AuthButton auth={this.props.auth} authenticated={this.props.authenticated} />
           </div>
           <Divider/>
-          <Link to={'/'} >
+          <Link to={'/'} style={{ 'text-decoration': 'none'}}>
             <MenuItem
             primaryText={'Play'}
             onTouchTap={this.toggle}/>
           </Link>
-          <Link to={'/profile'}>
+          <Link to={'/profile'} style={{ 'text-decoration': 'none', display: this.props.authenticated ? 'block' : 'none' }}>
             <MenuItem
             primaryText={'Profile'}
             onTouchTap={this.toggle}/>

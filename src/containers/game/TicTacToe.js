@@ -145,7 +145,7 @@ class TicTacToe extends Component {
       relay.commitUpdate(
         new CreateGame({
           player1: user,
-          name: '',
+          name: 'tictactoe',
           winner,
           player1Guess: guess,
           player1GuessCorrect: guessCorrect

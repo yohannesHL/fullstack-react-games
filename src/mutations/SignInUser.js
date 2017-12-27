@@ -17,9 +17,7 @@ export default class SignInUser extends Relay.Mutation {
   getFatQuery(){
     return Relay.QL`
     fragment on SigninPayload {
-      viewer {
-        user
-      }
+      viewer
     }
     `
   }

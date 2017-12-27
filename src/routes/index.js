@@ -11,7 +11,7 @@ import Pong from '../containers/game/Pong';
 
 
 const ViewerQueries = {
-  viewer: () => Relay.QL`query {viewer}`
+  viewer: () => Relay.QL`query { viewer }`
 }
 const createRoutes = () => {
   return (

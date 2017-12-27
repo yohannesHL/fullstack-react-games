@@ -14,14 +14,14 @@ const createHeaders = ()=> {
 
   if (idToken){
     return {
-      Authorisation: `${idToken}`
+      Authorization: `Bearer ${idToken}`
     }
   }
   else {
     return {}
   }
 }
-console.info('realy',Relay)
+
 Relay.injectNetworkLayer(
   new RelayNetworkLayer([
     urlMiddleware({

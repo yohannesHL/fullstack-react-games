@@ -6,9 +6,14 @@ class Profile extends Component {
   static defaultProps = {
     user: { }
   }
-  get records(){//vier.user
+  get records(){
     if(!this.props.viewer.user) return;
-    this.props.viewer.user.games.edges.map((edge, index) => {
+    const user = this.props.viewer.user
+
+    if (user.games.edges.length === 0 ){
+      return <h3> No game history data available.</h3>
+    }
+    return user.games.edges.map((edge, index) => {
 
       let { node: game } = edge
 
@@ -17,16 +22,16 @@ class Profile extends Component {
         key={index}
         index={index}
       >
-      <Column>{ game.winner ? "Won!" : "Didn't Win"}</Column>
+      <Column>{game.name}</Column>
+      <Column>{(game.winner && game.winner.id == user.id) ? "Won!" : "Didn't Win"}</Column>
       <Column>{game.player1Guess}</Column>
       <Column>{game.player1GuessCorrect ? 'Yes' : 'No'}</Column>
-      <Column>{new Date(game.createdAt).toLocaleDateString()}</Column>
+      <Column>{game.createdAt}</Column>
       </GameRecord>)
     })
   }
   render() {
     const {email} = this.props.viewer.user || 'Anonymous'
-
 
     return <Container>
 
@@ -37,7 +42,10 @@ class Profile extends Component {
       </GameListHeader>
         <ColumnLabels>
           <Column>
-            OutCome
+            Name
+           </Column>
+          <Column>
+            Out Come
            </Column>
           <Column>
             Guess
@@ -49,7 +57,7 @@ class Profile extends Component {
           Date
           </Column>
         </ColumnLabels>
-        {this.records}
+        { this.records }
     </GameList>
 
     </Container>
@@ -71,6 +79,9 @@ export default Relay.createContainer(
                 node {
                   id
                   createdAt
+                  name
+                  player1Guess
+                  player1GuessCorrect
                   winner {
                     id
                   }

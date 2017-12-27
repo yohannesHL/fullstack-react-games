@@ -6,7 +6,7 @@ export default class CreateUser extends Relay.Mutation {
 
     return {
       email: this.props.email,
-      name:'test',
+      name: this.props.name || this.props.email,
       authProvider: {
         auth0: { idToken: this.props.idToken }
       }
@@ -30,10 +30,17 @@ export default class CreateUser extends Relay.Mutation {
       type: 'RANGE_ADD',
       parentName: 'viewer',
       connectionName: 'allUsers',
-      edgeName: 'User',
+      edgeName: 'user',
       rangeBehaviors: {
         '': 'append'
       }
+    },{
+      type: 'REQUIRED_CHILDREN',
+      children: [Relay.QL`
+        fragment on CreateUserPayload {
+          user
+        }
+      `]
     }]
   }
 }

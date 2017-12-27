@@ -15,14 +15,13 @@ class AuthService {
       // oidcConformant: true,
       prefill:{},
       auth:{
-        redirectUrl: '',
 
         params:{
           scope: 'openid email'
-        },
-        redirectUri: '/',
+        },// eslint-disable-next-line
+        // redirectUri: '//' + location.host,
         // audience: 'https://yohan5.auth0.com/userinfo',
-        responseType: 'id_token',
+        // responseType: 'id_token',
       }
     })
 
@@ -43,17 +42,17 @@ class AuthService {
       exp
     }).then(
       success => {
-        console.info('signin ', success)
-        return success},
+        // eslint-disable-next-line
+        location.reload()
+        return success
+      },
       rejected => {
-        console.info('signin rejected', email)
         this.createUser({
           idToken: idToken,
           email:email,
           exp
         }).then()
-      }
-    )
+    })
   }
   showLock(){
     this.lock.show()
@@ -129,21 +128,17 @@ class AuthService {
     })
   }
   signInUser = (authFields) => {
-    console.info('signin user', authFields)
+
     return new Promise((resolve, reject) => {
       Relay.Store.commitUpdate(
       new SignInUser({
         idToken: authFields.idToken
       }), {
           onSuccess: (res) => {
-            console.info('sign user success', res)
-
             this.setToken(authFields)
             resolve()
           },
           onFailure: (res) => {
-            console.info('signin user error', res)
-
             reject()
           }
         }

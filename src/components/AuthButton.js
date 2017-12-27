@@ -14,6 +14,7 @@ const AuthButton = (props)=>{
       onTouchTap={props.auth.logout}
       fullWidth={true}
       secondary
+
       />
     )
   } else {
